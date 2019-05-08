@@ -4,7 +4,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <p>12445343</p>
+        <p>234324</p>
       </div>
     );
   }
