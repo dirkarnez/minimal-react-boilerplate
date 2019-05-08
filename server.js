@@ -6,15 +6,12 @@ var config = require('./webpack.config');
 var app = express();
 var compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath
-}));
-
+/**
+ * webpack-dev-server cannot be used in self-hosting environment, so webpack-dev-middleware is used
+ */
+app.use(require('webpack-dev-middleware')(compiler));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 app.listen(3000, function(err) {
   if (err) {
