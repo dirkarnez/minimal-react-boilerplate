@@ -18,9 +18,7 @@ module.exports = {
   //   main: ['./index.tsx', 'react-hot-loader/patch', 'webpack-hot-middleware/client?quiet=true'],    'webpack/hot/only-dev-server', 
   //      'react-hot-loader/patch', },
   entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    './index.tsx'
+    './index.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -31,23 +29,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 
           {
-            loader: 'babel-loader',
-            options: { 
-              babelrc: false,
-              presets: [
-                "@babel/preset-typescript",
-                "@babel/preset-react"
-              ],
-              plugins: [
-                'react-hot-loader/babel'
-              ]
-            }
+            loader: 'babel-loader'
           }
-        
       }
     ]
   },
@@ -59,10 +46,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
-    alias: {
-      app: path.resolve(__dirname, 'src/app'),
-      'react-dom': '@hot-loader/react-dom'
-    }
+    extensions: [".js", ".jsx"]
   }
 };
