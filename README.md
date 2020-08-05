@@ -1,2 +1,4 @@
-# minimal-react-boilerplate
-Minimal React Boilerplate in JavaScript
+minimal-react-boilerplate
+=========================
+### Reference
+- https://github.com/edwilliams/react-webpack-minimal-boilerplate
